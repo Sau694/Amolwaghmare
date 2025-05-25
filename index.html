@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amol Waghmare - Finance Professional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4361ee;
+      --secondary: #3f37c9;
+      --accent: #4cc9f0;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --success: #4bb543;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+      color: var(--dark);
+      line-height: 1.7;
+      padding: 20px;
+      position: relative;
+      min-height: 100vh;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(67, 97, 238, 0.3);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInDown 1s ease-out;
+    }
+    
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+      background-size: cover;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      position: relative;
+      z-index: 2;
+    }
+    
+    section {
+      margin: 25px 0;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      border-left: 4px solid var(--primary);
+    }
+    
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+    
+    h2 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 3px;
+    }
+    
+    h3 {
+      color: var(--secondary);
+      font-size: 1.3rem;
+      margin: 15px 0 10px;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    li {
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 25px;
+    }
+    
+    li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    
+    .contact a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .contact a:hover {
+      color: var(--secondary);
+      transform: translateX(3px);
+    }
+    
+    .contact p {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact i {
+      margin-right: 10px;
+      color: var(--primary);
+      width: 20px;
+      text-align: center;
+    }
+    
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: none;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(67, 97, 238, 0.3);
+      font-size: 20px;
+      z-index: 99;
+      transition: all 0.3s ease;
+    }
+    
+    #scrollTopBtn:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+    }
+    
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--accent);
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed #eee;
+    }
+    
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 5px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    
+    .tag {
+      display: inline-block;
+      background: rgba(67, 97, 238, 0.1);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .tag:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      
+      header {
+        padding: 25px 0;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      section {
+        padding: 20px;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      h3 {
+        font-size: 1.2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      h2 {
+        font-size: 1.3rem;
+      }
+      
+      section {
+        padding: 15px;
+      }
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+    
+    .progress-container {
+      width: 100%;
+      background-color: #f1f1f1;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+    
+    .progress-bar {
+      height: 10px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
+      text-align: center;
+      line-height: 10px;
+      color: white;
+      transition: width 1.5s ease;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <header class="floating">
+    <h1>Amol Waghmare</h1>
+    <p>Finance Professional | Chartered Accountant</p>
+  </header>
+
+  <section class="contact">
+    <h2>Contact</h2>
+    <p><i class="fas fa-envelope"></i> <a href="mailto:mr.amolwaghmare11@gmail.com">mr.amolwaghmare11@gmail.com</a></p>
+    <p><i class="fas fa-phone"></i> 9561215070</p>
+    <p><i class="fas fa-map-marker-alt"></i> Pune, India</p>
+    <p><i class="fas fa-birthday-cake"></i> 11/03/1998</p>
+    <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/amolwaghmare11" target="_blank">linkedin.com/in/amolwaghmare11</a></p>
+    
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/amolwaghmare11" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:mr.amolwaghmare11@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="tel:9561215070" title="Call"><i class="fas fa-phone"></i></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Profile</h2>
+    <p>I am a passionate finance professional with expertise in accounting, financial reporting, and compliance. My goal is to leverage my skills in financial analysis, budgeting, and tax planning to drive business growth and operational efficiency.</p>
+    
+    <div class="skills-container">
+      <span class="tag">Financial Reporting</span>
+      <span class="tag">Tax Compliance</span>
+      <span class="tag">Budgeting</span>
+      <span class="tag">Ind-AS/IGAAP</span>
+      <span class="tag">GST</span>
+      <span class="tag">Auditing</span>
+      <span class="tag">MIS Reporting</span>
+      <span class="tag">Corporate Tax</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Professional Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Shapoorji Pallonji Investment Advisor Pvt Ltd</h3>
+        <p><strong>Senior Officer / Assistant Manager - Accounts & Finance</strong> (Jan 2024 – Present)</p>
+        <ul>
+          <li>Managed financial transactions and prepared financial statements (Ind-AS/IGAAP)</li>
+          <li>Created budgets, MIS reports, and performance analysis</li>
+          <li>Ensured tax compliance, audits, and handled corporate tax</li>
+          <li>Managed accounts receivable/payable and stakeholder coordination</li>
+        </ul>
+      </div>
+      
+      <div class="timeline-item">
+        <h3>Cian Healthcare Ltd</h3>
+        <p><strong>Assistant Manager - Accounts and Finance</strong> (Sep 2022 – Jan 2024)</p>
+        <ul>
+          <li>Prepared financial reports and computed taxes</li>
+          <li>Analyzed business trends and ensured regulatory compliance</li>
+          <li>Handled GST, income tax, and international remittances</li>
+        </ul>
+      </div>
+      
+      <div class="timeline-item">
+        <h3>SPD and Associates</h3>
+        <p><strong>Article Audit Assistant</strong> (Aug 2019 – Sep 2022)</p>
+        <ul>
+          <li>Coordinated audits and evaluated internal control systems</li>
+          <li>Managed tax computation, compliance, and financial reporting</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>CA Inter</h3>
+        <p>The Institute of Chartered Accountants of India</p>
+      </div>
+      
+      <div class="timeline-item">
+        <h3>DTL</h3>
+        <p>Dr. Babasaheb Ambedkar Marathwada University, Chhatrapati Sambhajinagar </p>
+      </div>
+      
+      <div class="timeline-item">
+        <h3>Master of Commerce</h3>
+        <p>Dr. Babasaheb Ambedkar Marathwada University, Chhatrapati Sambhajinagar </p>
+      </div>
+      
+      <div class="timeline-item">
+        <h3>GDCA</h3>
+        <p>Maharashtra Public Service Commission</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Courses & Certifications</h2>
+    <ul>
+      <li>Information Technology Training – ICAI</li>
+      <li>Orientation Program – ICAI</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Languages</h2>
+    <div class="skills-container">
+      <span class="tag pulse">English</span>
+      <span class="tag pulse">Hindi</span>
+      <span class="tag pulse">Marathi</span>
+    </div>
+  </section>
+
+  <button id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
+
+  <script>
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    
+    // Scroll to top button
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollTopBtn.style.display = "flex";
+        scrollTopBtn.style.alignItems = "center";
+        scrollTopBtn.style.justifyContent = "center";
+      } else {
+        scrollTopBtn.style.display = "none";
+      }
+    };
+    
+    scrollTopBtn.onclick = function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
+
+    // Animated section transition observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          // Animate progress bars when they become visible
+          if (entry.target.querySelector('.progress-bar')) {
+            const progressBars = entry.target.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+              const width = bar.getAttribute('data-width');
+              bar.style.width = width;
+            });
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Add hover effect to timeline items
+    document.querySelectorAll('.timeline-item').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        item.querySelector('h3').style.color = 'var(--accent)';
+      });
+      item.addEventListener('mouseleave', () => {
+        item.querySelector('h3').style.color = 'var(--secondary)';
+      });
+    });
+  </script>
+</body>
+</html>
